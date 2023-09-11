@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:ticket/Screens/home_screen.dart';
 import 'package:ticket/Screens/search_screen.dart';
 
 import 'const/cosnt.dart';
 
 void main() {
+  WidgetsBinding widgetBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetBinding);
   runApp(const MyApp());
 }
 
