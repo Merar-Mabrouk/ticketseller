@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:ticket/Component/buttonsp.dart';
 import 'package:ticket/Component/second_wid.dart';
 import 'package:ticket/Component/usable_widget.dart';
+import 'package:ticket/Screens/ticket_screen.dart';
 import 'package:ticket/const/cosnt.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int t = 0;
     return Scaffold(
       backgroundColor: Styles.bgColor,
       body: ListView(
@@ -35,28 +37,58 @@ class _SearchScreenState extends State<SearchScreen> {
             style: Styles.headLineStyle1.copyWith(fontSize: 36),
           ),
           const Gap(20),
-          Container(
-            // padding: const EdgeInsets.symmetric(vertical: 6),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(18)),
-              color: Colors.white,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                    onTap: () {
-                      debugPrint("khhhhhh");
-                    },
-                    child: Text("Airline Ticket",
-                        style: Styles.textStyle.copyWith(fontSize: 14))),
-                InkWell(
-                    onTap: () {
-                      debugPrint("khhhhhh");
-                    },
-                    child: Text("Hotels", style: Styles.textStyle)),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    t = 0;
+                  });
+                },
+                style: TextButton.styleFrom(
+                    backgroundColor: i[t],
+                    foregroundColor: Colors.grey,
+                    elevation: 2.5,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                    ),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      bottomLeft: Radius.circular(25),
+                    ))),
+                child: Text(
+                  'Upcoming',
+                  style: Styles.headLineStyle4
+                      .copyWith(color: text[t], fontSize: 14),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    t = 1;
+                  });
+                },
+                style: TextButton.styleFrom(
+                    backgroundColor: i[(t + 1) % 2],
+                    foregroundColor: Colors.grey,
+                    elevation: 2.5,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                    ),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                    ))),
+                child: Text(
+                  'Previous',
+                  style: Styles.headLineStyle4
+                      .copyWith(color: text[(t + 1) % 2], fontSize: 14),
+                ),
+              ),
+            ],
           ),
           const Gap(28),
           Container(

@@ -5,6 +5,7 @@ const greyColor = Color(0xffeeedf2);
 const zColor = Color(0xffd2bdb6);
 const tst = Color(0XFEBEC2DE);
 const white = Color(0xfff4f6fd);
+const blueMzmr = Color(0xff92c2e5);
 
 class Styles {
   static Color textColor = const Color(0xFF3b3b3b);

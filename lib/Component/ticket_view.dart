@@ -39,7 +39,7 @@ class _TicketViewState extends State<TicketView> {
                           Styles.headLineStyle3.copyWith(color: Colors.white),
                     ),
                     Expanded(child: Container()),
-                    const Deco(),
+                    const Deco(thn: Colors.white),
                     Expanded(
                       child: Stack(
                         children: [
@@ -55,7 +55,7 @@ class _TicketViewState extends State<TicketView> {
                         ],
                       ),
                     ),
-                    const Deco(),
+                    const Deco(thn: Colors.white,),
                     Expanded(child: Container()),
                     Text("LDN",
                         style: Styles.headLineStyle3
