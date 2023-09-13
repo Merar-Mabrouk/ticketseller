@@ -3,13 +3,15 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:ticket/Screens/home_screen.dart';
 import 'package:ticket/Screens/search_screen.dart';
+import 'package:ticket/Screens/ticket_screen.dart';
 
 import 'const/cosnt.dart';
 
-void main() {
+void main() async {
   WidgetsBinding widgetBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetBinding);
   runApp(const MyApp());
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
@@ -38,12 +40,32 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
+  // void initialization() async {
+  //   // This is where you can initialize the resources needed by your app while
+  //   // the splash screen is displayed.  Remove the following example because
+  //   // delaying the user experience is a bad design practice!
+  //   // ignore_for_file: avoid_print
+  //   print('ready in 3...');
+  //   await Future.delayed(const Duration(seconds: 1));
+  //   print('ready in 2...');
+  //   await Future.delayed(const Duration(seconds: 1));
+  //   print('ready in 1...');
+  //   print('go!');
+    
+  // }
+
   final List<Widget> _options = const <Widget>[
     HomeScreen(),
     SearchScreen(),
-    Text("Buy"),
+    TicketScreen(),
     Text("person"),
   ];
+  @override
+  void initState() {
+    super.initState();
+    // initialization();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
